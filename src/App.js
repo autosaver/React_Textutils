@@ -12,7 +12,7 @@ function App() {
     else
         setmode('light');
   }
-  document.body.style.backgroundColor = (mode==='dark'?'black':'white');
+  document.body.style.backgroundColor = (mode==='dark'?'#212529':'white');
   
   return (
     <>
