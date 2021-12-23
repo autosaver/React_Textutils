@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar';
+import Textarea from './components/Textarea';
+import React, { useState } from 'react';
+
 
 function App() {
+  const [mode,setmode]=useState('dark');
+
+  const toggle=()=>{
+    if(mode==='light')
+        setmode('dark');
+    else
+        setmode('light');
+  }
+  document.body.style.backgroundColor = (mode==='dark'?'black':'white');
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div>
+      <Navbar title='TextUtils' first='Home' sec='About us' mode={mode} toggle={toggle}/>
+      <div className="container">
+      <Textarea innertext="Enter your text to analyse" mode={mode}/>
+      </div>
     </div>
+      
+    </>
   );
 }
 
